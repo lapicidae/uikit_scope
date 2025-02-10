@@ -1,0 +1,44 @@
+# All values set here can be queried via '$addon->getProperty($key)'
+
+package: uikit_scope
+version: '0.1'
+vendor: '3.23.0'
+author: lapicidae
+supportpage: https://github.com/lapicidae/uikit_scope
+
+# Values beginning with 'translate:' are translated using the language file (lang/language.lang).
+# The AddOn prefix (here 'uikit_scope_') can be omitted.
+
+page:
+  title: 'translate:navititle'
+  icon: rex-icon fa-brands fa-uikit
+  subpages:
+    config:
+      title: 'translate:config'
+      icon: rex-icon fa-wrench
+    changelog:
+      title: 'translate:changelog'
+      icon: rex-icon fa-solid fa-clock-rotate-left
+      subPath: 'CHANGELOG.md'
+      itemClass: pull-right
+    readme:
+      title: 'translate:readme'
+      icon: rex-icon fa-info-circle
+      subPath: 'README.md'
+      itemClass: pull-right
+
+pages:
+  system/log/uikit_scope:
+    title: "translate:navititle"
+    perm: admin[]
+
+requires:
+  redaxo: '>=5.18'
+
+conflicts:
+  packages:
+    uikit_collection: '>=1'
+
+installer_ignore:
+  - .github
+  - .gitignore

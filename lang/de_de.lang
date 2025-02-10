@@ -1,0 +1,50 @@
+navigation_uikit_scope = UIkit Scope
+uikit_scope_navititle = UIkit Scope
+uikit_scope_title = UIkit Scope
+uikit_scope_config = Einstellungen
+uikit_scope_readme = Anleitung
+uikit_scope_description = Beschreibung
+uikit_scope_changelog = Änderungsprotokoll
+
+uikit_scope_conf_source = Ressourcen
+uikit_scope_conf_source_included = enthaltene Dateien
+uikit_scope_conf_source_user = eigene/externe Dateien
+uikit_scope_conf_source_notice = Grundsätzlich sind die enthaltenen Dateien zu bevorzugen.<br>Bei CDN die DSGVO beachten!
+uikit_scope_conf_rsc = Pfade
+uikit_scope_conf_rsc_descr = Mindestens ein Feld muss ausgefüllt sein.
+uikit_scope_conf_rsc_js = JavaScript Pfad
+uikit_scope_conf_rsc_icons = Icons Pfad
+uikit_scope_conf_rsc_css = CSS Pfad
+uikit_scope_conf_rsc_css_noscope = (Kein Scope)
+uikit_scope_conf_rsc_css_notice = Eine <a href="{0}">Scope-Version</a> des UIkit CSS sollte verwendet werden
+uikit_scope_conf_source_correction = Korrektur
+uikit_scope_conf_source_correction_on = Eingabe korrigieren
+uikit_scope_conf_source_correction_notice = Es wird versucht fehlerhafte bzw. nicht konforme Pfadangaben zu korrigieren
+uikit_scope_conf_source_correction_info = Die Eingabe "{0}" wurde in "{1}" korrigiert
+
+uikit_scope_conf_rsc_button_validate = Überprüfen
+uikit_scope_conf_rsc_button_loading = Lade
+uikit_scope_conf_rsc_msg_title_error = FEHLER
+uikit_scope_conf_rsc_msg_title_success = ERFOLG
+uikit_scope_conf_rsc_msg_title_warning = WARNUNG
+uikit_scope_conf_rsc_msg_success = Alle Ressourcen sind verfügbar!
+uikit_scope_conf_rsc_msg_warning_empty = Bitte fülle mindestens ein Feld aus.
+
+uikit_scope_log_class = Klasse
+uikit_scope_log_function = Funktion
+
+## ytemplates
+# value.upload.tpl.php
+uikit_scope_choose_file = Datei auswählen
+# value.signature.tpl.php
+uikit_scope_erase_signature = Eingabe wirklich löschen?
+# value.datetime.tpl.php
+uikit_scope_year = Jahr
+uikit_scope_month = Monat
+uikit_scope_day = Tag
+uikit_scope_hour = Stunde
+uikit_scope_minute = Minute
+uikit_scope_second = Sekunde
+# value.text.tpl.php
+uikit_scope_show_password = Passwort anzeigen
+uikit_scope_hide_password = Passwort ausblenden

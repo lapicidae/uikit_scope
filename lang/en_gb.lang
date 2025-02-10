@@ -1,0 +1,50 @@
+navigation_uikit_scope = UIkit Scope
+uikit_scope_navititle = UIkit Scope
+uikit_scope_title = UIkit Scope
+uikit_scope_config = Settings
+uikit_scope_readme = Manual
+uikit_scope_description = Description
+uikit_scope_changelog = Changelog
+
+uikit_scope_conf_source = Source
+uikit_scope_conf_source_included = included files
+uikit_scope_conf_source_user = own/external files
+uikit_scope_conf_source_notice = In principle, the included files are to be preferred.<br>Pay attention to the GDPR with CDN!
+uikit_scope_conf_rsc = Resources
+uikit_scope_conf_rsc_descr = At least one field must be completed.
+uikit_scope_conf_rsc_js = JavaScript Resource
+uikit_scope_conf_rsc_icons = Icons Resource
+uikit_scope_conf_rsc_css = CSS Resource
+uikit_scope_conf_rsc_css_noscope = (No Scope)
+uikit_scope_conf_rsc_css_notice = A <a href="{0}">scoped</a> version of the UIkit CSS should be used
+uikit_scope_conf_source_correction = Correction
+uikit_scope_conf_source_correction_on = Correct input
+uikit_scope_conf_source_correction_notice = Attempts are made to correct incorrect or non-compliant paths
+uikit_scope_conf_source_correction_info = Input "{0}" corrected to "{1}"
+
+uikit_scope_conf_rsc_button_validate = Validate
+uikit_scope_conf_rsc_button_loading = Loading
+uikit_scope_conf_rsc_msg_title_error = ERROR
+uikit_scope_conf_rsc_msg_title_success = SUCCESS
+uikit_scope_conf_rsc_msg_title_warning = WARNING
+uikit_scope_conf_rsc_msg_success = All resources are available!
+uikit_scope_conf_rsc_msg_warning_empty = Please fill in at least one field.
+
+uikit_scope_log_class = Class
+uikit_scope_log_function = Function
+
+## ytemplates
+# value.upload.tpl.php
+uikit_scope_choose_file = Choose file
+# value.signature.tpl.php
+uikit_scope_erase_signature = Really delete input?
+# value.datetime.tpl.php
+uikit_scope_year = Year
+uikit_scope_month = Month
+uikit_scope_day = Day
+uikit_scope_hour = Hour
+uikit_scope_minute = Minute
+uikit_scope_second = Second
+# value.text.tpl.php
+uikit_scope_show_password = Show password
+uikit_scope_hide_password = Hide password
