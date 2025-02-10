@@ -8,6 +8,7 @@ uikit_scope_changelog = Changelog
 
 uikit_scope_conf_source = Source
 uikit_scope_conf_source_included = included files
+uikit_scope_conf_source_included_rtl = included files (Right to Left)
 uikit_scope_conf_source_user = own/external files
 uikit_scope_conf_source_notice = In principle, the included files are to be preferred.<br>Pay attention to the GDPR with CDN!
 uikit_scope_conf_rsc = Resources

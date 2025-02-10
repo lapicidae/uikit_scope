@@ -16,7 +16,8 @@ class ResourceChecker {
 		this.debugMode = config.debugMode !== undefined ? config.debugMode : true;
 
 		this.selectors = {
-			radioIncluded: config.radioIncluded || 'input:radio[id*="-source-included"]',
+			radioAll: config.radioAll || 'input:radio[id*="-source"]',
+			radioUser: config.radioUser || 'input:radio[id*="-source-user"]',
 			resourceInputs: config.resourceInputs || 'input[data-id^="source-resource"]',
 			resourceInputsValidate: config.resourceInputsValidate || 'input[data-resource-validate="true"]',
 			checkButton: config.checkButton || '#checkResources',
@@ -45,7 +46,7 @@ class ResourceChecker {
 		this.debugLog('Initializing ResourceChecker...');
 		this.toggleFields();
 
-		$(document).on('change', 'input:radio', () => this.toggleFields());
+		$(document).on('change', this.selectors.radioAll, () => this.toggleFields());
 		$(document).on('click', this.selectors.checkButton, () => this.validateResources());
 		$(document).on('submit', this.selectors.form, (e) => this.validateForm(e));
 	}
@@ -54,22 +55,23 @@ class ResourceChecker {
 	 * Toggles resource input fields based on the radio button state.
 	 */
 	toggleFields() {
-		const isIncluded = $(this.selectors.radioIncluded).prop('checked');
-		this.debugLog('Radio button checked:', isIncluded);
+		const isUserSelected = $(this.selectors.radioUser).is(':checked');
+
+		this.debugLog('User radio button selected:', isUserSelected);
 
 		const $resourceInputs = $(this.selectors.resourceInputs);
 		const $checkButton = $(this.selectors.checkButton);
 		const $alertContainer = $(this.selectors.alertContainer);
 
-		if (isIncluded) {
-			this.debugLog('Disabling resource inputs');
-			$resourceInputs.prop('disabled', true).val('');
-			$alertContainer.empty();
-			$checkButton.prop('disabled', true);
-		} else {
+		$resourceInputs.prop('disabled', !isUserSelected);
+		$checkButton.prop('disabled', !isUserSelected);
+
+		if (isUserSelected) {
 			this.debugLog('Enabling resource inputs');
-			$resourceInputs.prop('disabled', false);
-			$checkButton.prop('disabled', false);
+		} else {
+			this.debugLog('Disabling resource inputs');
+			$resourceInputs.val('');
+			$alertContainer.empty();
 		}
 	}
 
@@ -139,23 +141,23 @@ class ResourceChecker {
 		$(this.selectors.resourceInputsValidate).not(':disabled').filter(':visible').each((_, input) => {
 			const $input = $(input);
 
-            if ($input.is('input')) {
-                const resource = $input.val().trim();
-                if (!resource) return;
+			if ($input.is('input')) {
+				const resource = $input.val().trim();
+				if (!resource) return;
 
-                anyResource = true;
-                const inputId = $input.attr('id');
-                const label = $(`${this.selectors.labelFor}${inputId}"]`).text().trim() || '';
+				anyResource = true;
+				const inputId = $input.attr('id');
+				const label = $(`${this.selectors.labelFor}${inputId}"]`).text().trim() || '';
 
-                promises.push(this.checkResource(resource).then(isValid => {
-                    if (!isValid) {
-                        allValid = false;
-                        invalidRes.push(`<strong>${label}:</strong> ${resource}`);
-                    }
-                }));
-            } else {
-                this.debugLog("Skipping non-input element:", $input);
-            }
+				promises.push(this.checkResource(resource).then(isValid => {
+					if (!isValid) {
+						allValid = false;
+						invalidRes.push(`<strong>${label}:</strong> ${resource}`);
+					}
+				}));
+			} else {
+				this.debugLog("Skipping non-input element:", $input);
+			}
 		});
 
 		if (!anyResource) {
@@ -190,7 +192,7 @@ class ResourceChecker {
 		this.debugLog('Form submission triggered');
 		$(this.selectors.alertContainer).empty();
 
-		if (!$(this.selectors.radioIncluded).prop('checked') && !this.validateFields()) {
+		if ($(this.selectors.radioUser).prop('checked') && !this.validateFields()) {
 			e.preventDefault();
 			this.debugLog('Form validation failed: No resources entered');
 			this.displayAlert(this.msgEmpty, 'warning', this.msgTitleWarn);

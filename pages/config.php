@@ -66,6 +66,7 @@ $form->addFieldset($addon->i18n('config'));
 $field = $form->addRadioField('source');
 $field->setLabel($addon->i18n('conf_source'));
 $field->addOption($addon->i18n('conf_source_included'), 'included');
+$field->addOption($addon->i18n('conf_source_included_rtl'), 'included_rtl');
 $field->addOption($addon->i18n('conf_source_user'), 'user');
 
 if (!$addon->getConfig('source', false)) {

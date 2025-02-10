@@ -8,6 +8,7 @@ uikit_scope_changelog = Änderungsprotokoll
 
 uikit_scope_conf_source = Ressourcen
 uikit_scope_conf_source_included = enthaltene Dateien
+uikit_scope_conf_source_included_rtl = enthaltene Dateien (Rechts nach Links)
 uikit_scope_conf_source_user = eigene/externe Dateien
 uikit_scope_conf_source_notice = Grundsätzlich sind die enthaltenen Dateien zu bevorzugen.<br>Bei CDN die DSGVO beachten!
 uikit_scope_conf_rsc = Pfade

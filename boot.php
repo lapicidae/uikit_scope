@@ -22,12 +22,17 @@ if (rex::isBackend()) {
 	/**
 	 * Include UIkit files in the backend content edit page.
 	 */
-	if ('content/edit' == rex_be_controller::getCurrentPage()) {
+	if ('content/edit' === rex_be_controller::getCurrentPage()) {
 
 		/**
 		 * Get UIkit CSS and JS URLs. Prioritize user configuration.
 		 */
-		$cssUIkit = $addon->getConfig('rsc_css') ?? $addon->getAssetsUrl('css/uikit-scope.min.css');
+		if ('included_rtl' === $addon->getConfig('source')) {
+			$cssUIkit = $addon->getAssetsUrl('css/uikit-scope-rtl.min.css');
+		} else {
+			$cssUIkit = $addon->getConfig('rsc_css') ?? $addon->getAssetsUrl('css/uikit-scope.min.css');
+		}
+
 		$jsUIkit = $addon->getConfig('rsc_js') ?? $addon->getAssetsUrl('js/uikit.min.js');
 		$iconsUIkit = $addon->getConfig('rsc_icons') ?? $addon->getAssetsUrl('js/uikit-icons.min.js');
 
@@ -42,7 +47,7 @@ if (rex::isBackend()) {
 			$cssWorkaroundUIkit = $cssNewFile->url;
 			rex_view::addCssFile($cssWorkaroundUIkit);
 		} else {
-			$this->logger->logWarning("Failed to generate scoped CSS.");
+			$this->logger->logWarning("Failed to generate scoped CSS for: " . $cssUIkit);
 		}
 
 		/**
@@ -68,7 +73,7 @@ if (rex::isBackend()) {
 	/**
 	 * Include configuration JS file in the uikit_scope config page.
 	 */
-	if ('uikit_scope/config' == rex_be_controller::getCurrentPage()) {
+	if ('uikit_scope/config' === rex_be_controller::getCurrentPage()) {
 		rex_view::addJsFile($addon->getAssetsUrl('js/uikit-scope-config.js'), [rex_view::JS_IMMUTABLE => true]);
 	}
 }
