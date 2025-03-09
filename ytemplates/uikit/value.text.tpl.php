@@ -120,85 +120,85 @@ if (preg_match('(uk-form-horizontal|uk-form-stacked)', $this->params['this']->ge
 
 <script type="module" nonce="<?= rex_response::getNonce() ?>">
 	if (!window.passwordEnhancerInitialized) {
-    window.passwordEnhancerInitialized = true;
+	window.passwordEnhancerInitialized = true;
 
-    document.addEventListener('DOMContentLoaded', function () {
-        jQuery(document).ready(function ($) {
+	document.addEventListener('DOMContentLoaded', function () {
+		jQuery(document).ready(function ($) {
 
-            // Check if an element or any of its parents contains "uk-" in its CSS class
-            function hasUkClass(element) {
-                return $(element).closest('[class*="uk-"]').length > 0;
-            }
+			// Check if an element or any of its parents contains "uk-" in its CSS class
+			function hasUkClass(element) {
+				return $(element).closest('[class*="uk-"]').length > 0;
+			}
 
 			<?php if (rex::isBackend()): ?>
-            // Tidying up password fields
-            function resetPasswordInputs() {
-                $('input[type="password"]').each(function () {
-                    const $el = $(this);
+			// Tidying up password fields
+			function resetPasswordInputs() {
+				$('input[type="password"]').each(function () {
+					const $el = $(this);
 
-                    // Skip if the element or its parents do not contain a "uk-" class
-                    if (!hasUkClass($el)) {
-                        return;
-                    }
+					// Skip if the element or its parents do not contain a "uk-" class
+					if (!hasUkClass($el)) {
+						return;
+					}
 
-                    // Remove additional wrappers and buttons
-                    const $wrapper = $el.closest('div.input-group');
-                    if ($wrapper.length) {
-                        $wrapper.find('span.input-group-btn').remove();
-                        $el.unwrap();
-                    }
+					// Remove additional wrappers and buttons
+					const $wrapper = $el.closest('div.input-group');
+					if ($wrapper.length) {
+						$wrapper.find('span.input-group-btn').remove();
+						$el.unwrap();
+					}
 
-                    // Make sure that the type is set to ‘password’
-                    $el.attr('type', 'password');
-                });
-            }
+					// Make sure that the type is set to ‘password’
+					$el.attr('type', 'password');
+				});
+			}
 
-            resetPasswordInputs(); // Remove existing buttons/wrappers
-            <?php endif ?>
+			resetPasswordInputs(); // Remove existing buttons/wrappers
+			<?php endif ?>
 
-            // Add UIkit components for password fields
-            function enhancePasswordInputs() {
-                const tooltipDelay = 250; // Tooltip delay in milliseconds
-                const tooltipShow = '<?= rex_i18n::msg('uikit_scope_show_password') ?>'; // Tooltip 'Show password'
-                const tooltipHide = '<?= rex_i18n::msg('uikit_scope_hide_password') ?>'; // Tooltip 'Hide password'
+			// Add UIkit components for password fields
+			function enhancePasswordInputs() {
+				const tooltipDelay = 250; // Tooltip delay in milliseconds
+				const tooltipShow = '<?= rex_i18n::msg('uikit_scope_show_password') ?>'; // Tooltip 'Show password'
+				const tooltipHide = '<?= rex_i18n::msg('uikit_scope_hide_password') ?>'; // Tooltip 'Hide password'
 
-                $('input[type="password"]').each(function () {
-                    const $passwordInput = $(this);
+				$('input[type="password"]').each(function () {
+					const $passwordInput = $(this);
 
-                    // Skip if the element or its parents do not contain a "uk-" class
-                    if (!hasUkClass($passwordInput)) {
-                        return;
-                    }
+					// Skip if the element or its parents do not contain a "uk-" class
+					if (!hasUkClass($passwordInput)) {
+						return;
+					}
 
-                    const $parent = $passwordInput.parent();
+					const $parent = $passwordInput.parent();
 
-                    if (!$parent.hasClass('uk-position-relative')) {
-                        $parent.addClass('uk-position-relative');
-                    }
+					if (!$parent.hasClass('uk-position-relative')) {
+						$parent.addClass('uk-position-relative');
+					}
 
-                    const $button = $('<a>')
-                        .addClass('uk-form-icon uk-form-icon-flip')
-                        .attr('uk-icon', 'icon: eye')
-                        .attr('uk-tooltip', `title: ${tooltipShow}; delay: ${tooltipDelay}`);
-                    $passwordInput.before($button);
+					const $button = $('<a>')
+						.addClass('uk-form-icon uk-form-icon-flip')
+						.attr('uk-icon', 'icon: eye')
+						.attr('uk-tooltip', `title: ${tooltipShow}; delay: ${tooltipDelay}`);
+					$passwordInput.before($button);
 
-                    $button.on('click', function () {
-                        const isPassword = $passwordInput.attr('type') === 'password';
-                        $passwordInput.attr('type', isPassword ? 'text' : 'password');
-                        $button
-                            .attr('uk-icon', isPassword ? 'icon: eye-slash' : 'icon: eye')
-                            .attr(
-                                'uk-tooltip',
-                                `title: ${isPassword ? tooltipHide : tooltipShow}; delay: ${tooltipDelay}`
-                            );
-                        $passwordInput.focus();
-                    });
-                });
-            }
+					$button.on('click', function () {
+						const isPassword = $passwordInput.attr('type') === 'password';
+						$passwordInput.attr('type', isPassword ? 'text' : 'password');
+						$button
+							.attr('uk-icon', isPassword ? 'icon: eye-slash' : 'icon: eye')
+							.attr(
+								'uk-tooltip',
+								`title: ${isPassword ? tooltipHide : tooltipShow}; delay: ${tooltipDelay}`
+							);
+						$passwordInput.focus();
+					});
+				});
+			}
 
-            enhancePasswordInputs(); // Add new buttons/wrappers
-        });
-    });
+			enhancePasswordInputs(); // Add new buttons/wrappers
+		});
+	});
 }
 </script>
 

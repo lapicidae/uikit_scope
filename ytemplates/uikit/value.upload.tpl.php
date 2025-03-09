@@ -2,7 +2,6 @@
 
 /**
  * @var rex_yform_value_upload $this
- *
  * @psalm-scope-this rex_yform_value_upload
 */
 

@@ -8,19 +8,19 @@
 $option ??= '';
 
 switch ($option) {
-    case 'open':
-        $attributes = [
-            'class' => $this->getHTMLClass(),
-            'id' => $this->getHTMLId(),
-        ];
-        $attributes['class'] = 'uk-fieldset ' . $attributes['class'];
-        $attributes = $this->getAttributeElements($attributes, []);
-        echo '<fieldset ' . implode(' ', $attributes) . '>';
-        if ($this->getLabel()) {
-            echo '<legend class="uk-legend" id="' . $this->getFieldId() . '">' . $this->getLabel() . '</legend>';
-        }
-        break;
-    case 'close':
-        echo '</fieldset>';
-        break;
+	case 'open':
+		$attributes = [
+			'class' => $this->getHTMLClass(),
+			'id' => $this->getHTMLId(),
+		];
+		$attributes['class'] = 'uk-fieldset ' . $attributes['class'];
+		$attributes = $this->getAttributeElements($attributes, []);
+		echo '<fieldset ' . implode(' ', $attributes) . '>';
+		if ($this->getLabel()) {
+			echo '<legend class="uk-legend" id="' . $this->getFieldId() . '">' . $this->getLabel() . '</legend>';
+		}
+		break;
+	case 'close':
+		echo '</fieldset>';
+		break;
 }

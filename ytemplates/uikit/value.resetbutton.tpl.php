@@ -6,7 +6,7 @@
 */
 
 if ('' != trim($this->getElement(4))) {
-    $css = $this->getElement(4);
+	$css = $this->getElement(4);
 } else {
 	$css = 'uk-button-default';
 }
