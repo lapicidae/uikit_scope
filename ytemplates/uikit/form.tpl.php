@@ -6,17 +6,10 @@
  * @psalm-scope-this rex_yform
 */
 
-if (rex::isBackend()) {
-	$scopeClass = 'uk-background-default';
-}
-
 $wrapClass = preg_replace('/\byform\b/', '', $this->objparams['form_wrap_class']);
 
 ?>
-<?php if (rex::isBackend()) : ?>
-<div class="uk-scope">
-<?php endif ?>
-<div id="<?= $this->objparams['form_wrap_id'] ?>" class="<?= trim($scopeClass . ' ' . $wrapClass) ?>">
+<div id="<?= $this->objparams['form_wrap_id'] ?>" class="<?= trim($wrapClass) ?>">
 
 <?php
 if ('' != $this->objparams['form_action']) {
@@ -71,6 +64,3 @@ if ('' != $this->objparams['form_action']) {
 ?>
 
 </div>
-<?php if (rex::isBackend()) : ?>
-</div>
-<?php endif ?>
