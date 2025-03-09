@@ -19,13 +19,14 @@ if ($this->getElement('notice')) {
 
 $notice = '';
 if (count($notices) > 0) {
-	$notice = '<div class="uk-flex uk-flex-wrap uk-text-meta" uk-margin="margin: uk-margin-xsmall-top">' . implode('', $notices) . '</div>';
+	$notice = '<div class="uk-flex uk-flex-wrap uk-text-meta uk-margin-left" uk-margin="margin: uk-margin-xsmall-top">' . implode('', $notices) . '</div>';
 }
 
-$class_group = trim('uk-margin ' . $this->getHTMLClass() . ' ' . $this->getWarningClass());
+$htmlClass = str_replace('formcheckbox', '', $this->getHTMLClass());
+$class_group = trim('uk-margin ' . $htmlClass . ' ' . $warningClass);
 
 $attributes = [
-	'class' => 'uk-checkbox uk-margin-xsmall-right',
+	'class' => 'uk-checkbox uk-margin-remove-top uk-flex-none uk-margin-xsmall-right',
 	'type' => 'checkbox',
 	'id' => $this->getFieldId(),
 	'name' => $this->getFieldName(),
@@ -40,8 +41,13 @@ $attributes = $this->getAttributeElements($attributes, ['required', 'disabled', 
 ?>
 
 <div class="<?= $class_group ?>" id="<?= $this->getHTMLId() ?>">
-	<div class="uk-form-controls">
-		<label><input <?= implode(' ', $attributes) ?>><?= $this->getLabel() ?></label>
-		<?= $notice ?>
+	<div class="uk-form-controls uk-form-controls-text">
+		<div class="uk-flex uk-flex-column">
+			<span class="uk-flex-inline uk-flex-middle">
+				<input <?= implode(' ', $attributes) ?>>
+				<label for="<?= $this->getFieldId() ?>"><?= $this->getLabel() ?></label>
+			</span>
+			<?= $notice ?>
+		</div>
 	</div>
 </div>
