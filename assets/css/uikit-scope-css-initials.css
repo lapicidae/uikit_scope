@@ -4,9 +4,21 @@
 */
 
 .uk-scope * {
-    border: none;
+	border: none;
 	font-family: inherit;
-    font-weight: initial;
+	font-weight: initial;
+}
+
+@media (prefers-color-scheme: dark) {
+	.uk-scope:not(.rex-theme-light) table {
+		background-color: initial;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.uk-scope:not(.rex-theme-dark) table {
+		background-color: initial;
+	}
 }
 
 .uk-scope {
@@ -36,7 +48,7 @@
 	font-variant-position: normal;
 	/* font-weight: normal; */
 	hyphens: manual;
-	image-orientation: 0deg;
+	image-orientation: from-image;
 	image-rendering: auto;
 	image-resolution: 1dppx;
 	letter-spacing: normal;
