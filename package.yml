@@ -1,8 +1,8 @@
 # All values set here can be queried via '$addon->getProperty($key)'
 
 package: uikit_scope
-version: '0.1'
-vendor: '3.23.0'
+version: '0.2'
+vendor: '3.23.4'
 author: lapicidae
 supportpage: https://github.com/lapicidae/uikit_scope
 
