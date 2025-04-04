@@ -89,7 +89,7 @@ if (preg_match('(uk-form-horizontal|uk-form-stacked)', $this->params['this']->ge
 } else {
 
 	if (!preg_grep('/^placeholder=/', $attributes)) {
-		$attributes[] = trim('placeholder=' . $this->getLabel());
+		$attributes[] = trim('placeholder="' . $this->getLabel() . '"');
 	}
 
 	if (!empty($prepend) || !empty($append)) {

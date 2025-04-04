@@ -55,7 +55,7 @@ if (preg_match('(uk-form-horizontal|uk-form-stacked)', $this->params['this']->ge
 } else {
 
 	if (!preg_grep('/^placeholder=/', $attributes)) {
-		$attributes[] = 'placeholder=' . $this->getLabel();
+		$attributes[] = 'placeholder="' . $this->getLabel() . '"';
 	}
 
 	echo '<div class="' . $class_group . '" id="' . $this->getHTMLId() . '">
