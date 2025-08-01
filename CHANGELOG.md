@@ -1,3 +1,7 @@
+# Version: 0.3
+
+* [1aae279](https://github.com/lapicidae/uikit_scope/commit/1aae279): FIX: placeholder with space
+
 # Version: 0.2
 
 * [a5fdb6b](https://github.com/lapicidae/uikit_scope/commit/a5fdb6b): uikit 3.23.4

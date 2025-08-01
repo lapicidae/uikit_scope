@@ -19,7 +19,7 @@ Das UIKit Scope Addon für REDAXO erweitert das CMS um eine flexible Integration
 
 ## REX_UIKIT_SCOPE Variable
 
-Diese Variable hilft dabei, UIkit-spezifische Inhalte ins REDAXO Backend zu integrieren.
+Diese Variable hilft dabei, UIkit-spezifische Inhalte im REDAXO Backend korrekt anzuzeigen.
 
 ### Verwendung
 
