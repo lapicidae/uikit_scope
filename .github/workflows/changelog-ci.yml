@@ -1,8 +1,9 @@
 name: Changelog CI
 
 on:
-  pull_request:
-    types: [ opened ]
+  push:
+    paths:
+      - 'package.yml'
 
   # Optionally you can use `workflow_dispatch` to run Changelog CI Manually
   workflow_dispatch:
