@@ -20,6 +20,10 @@ jobs:
       # Checks-out your repository
       - uses: actions/checkout@v4
 
+      - name: Get release version
+        id: get_version
+        run: printf 'VERSION=%s\n' "$(grep 'version:' package.yml | awk '{print $2}' | tr -d "'")" >> $GITHUB_OUTPUT
+
       - name: Run Changelog CI
         uses: saadmk11/changelog-ci@v1.2.0
         with:
@@ -41,6 +45,6 @@ jobs:
           # In this example `release_version` is fetched from `workflow_dispatch` events input.
           # You can use any other method to fetch the release version
           # such as environment variable or from output of another action
-          release_version: ${{ github.event.inputs.release_version }}
+          release_version: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.release_version || steps.get_version.outputs.VERSION }}
           # Optional
           github_token: ${{ secrets.GITHUB_TOKEN }}
