@@ -1,6 +1,12 @@
 # Version: 0.3.1
 
 * [#1](https://github.com/lapicidae/uikit_scope/pull/1): build(deps): bump actions/checkout from 2 to 4
+* [#3](https://github.com/lapicidae/uikit_scope/pull/3): [Changelog CI] Add Changelog for Version 0.3.1
+
+
+# Version: 0.3.1
+
+* [#1](https://github.com/lapicidae/uikit_scope/pull/1): build(deps): bump actions/checkout from 2 to 4
 
 
 # Version: 0.3
