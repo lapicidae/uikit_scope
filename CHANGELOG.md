@@ -1,3 +1,8 @@
+# Version: 0.3.1
+
+* [#1](https://github.com/lapicidae/uikit_scope/pull/1): build(deps): bump actions/checkout from 2 to 4
+
+
 # Version: 0.3
 
 * [1aae279](https://github.com/lapicidae/uikit_scope/commit/1aae279): FIX: placeholder with space
