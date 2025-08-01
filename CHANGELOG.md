@@ -1,3 +1,8 @@
+# Version: 0.3
+
+* [#1](https://github.com/lapicidae/uikit_scope/pull/1): build(deps): bump actions/checkout from 2 to 4
+
+
 # Version: 0.2
 
 * [a5fdb6b](https://github.com/lapicidae/uikit_scope/commit/a5fdb6b): uikit 3.23.4
